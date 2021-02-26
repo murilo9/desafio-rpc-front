@@ -99,9 +99,27 @@ const Program: React.FC<ProgramProps> = ({data}) => {
           <Grid item xs={3} sm={2} lg={1}></Grid>
           <Grid item xs={9} sm={10} lg={11}>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
+              { data.description || null}
             </Typography>
+            <p> </p>
+            { 
+              data.custom_info.Genero?.Descricao? 
+              <Typography color="textSecondary">
+                Gênero: { data.custom_info.Genero.Descricao }
+              </Typography>
+              : null
+            }
+            {
+              data.custom_info.Classificacao?.Idade?
+              <Typography color="textSecondary">
+                Classificação: { 
+                  isNaN(parseInt(data.custom_info.Classificacao.Idade)) ?
+                  data.custom_info.Classificacao.Idade
+                  : data.custom_info.Classificacao.Idade + ' anos'
+                }
+              </Typography>
+              : null
+            }
           </Grid>
         </Grid>
       </AccordionDetails>
