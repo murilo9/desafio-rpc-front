@@ -50,10 +50,10 @@ const Program: React.FC<ProgramProps> = ({data}) => {
 
   const title = (): ReactNode => {
     return (
-      <Container>
+      <div>
         <Typography>{data.title}</Typography>
         <Typography color="textSecondary">{getReadableTime()}</Typography>
-      </Container>
+      </div>
     )
   }
 
@@ -73,7 +73,11 @@ const Program: React.FC<ProgramProps> = ({data}) => {
   }
 
   const onAirBadge = (): ReactNode => {
-    return isOnAir() ? <Chip color="secondary" label="No Ar"/> : null
+    return  (
+      <Grid item xs={3} sm={2} lg={1}>
+        {isOnAir() ? <Chip color="secondary" label="No Ar"/> : null}
+      </Grid>
+    )
   }
 
   return (
@@ -84,19 +88,22 @@ const Program: React.FC<ProgramProps> = ({data}) => {
         id="panel1a-header"
       >
         <Grid container>
-          <Grid item xs={2} sm={1}>
-            { onAirBadge() }
-          </Grid>
-          <Grid item xs={10} sm={11}>
+          { onAirBadge() }
+          <Grid item xs={9} sm={10} lg={11}>
             {title()}
           </Grid>
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-          sit amet blandit leo lobortis eget.
-        </Typography>
+        <Grid container>
+          <Grid item xs={3} sm={2} lg={1}></Grid>
+          <Grid item xs={9} sm={10} lg={11}>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+              sit amet blandit leo lobortis eget.
+            </Typography>
+          </Grid>
+        </Grid>
       </AccordionDetails>
     </Accordion>
   )
