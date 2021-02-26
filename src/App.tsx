@@ -1,9 +1,10 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      Desafio RPC
+      <Button>Desafio RPC</Button>
     </div>
   );
 }
