@@ -4,7 +4,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Chip, Grid } from '@material-ui/core';
+import { Chip, Container, Grid } from '@material-ui/core';
 
 interface ProgramProps {
   data: ProgramData
@@ -48,12 +48,23 @@ const Program: React.FC<ProgramProps> = ({data}) => {
     return data.media_id
   }
 
-  const title = (): string => {
-    return `${getReadableTime()} - ${data.title}`
+  const title = (): ReactNode => {
+    return (
+      <Container>
+        <Typography>{data.title}</Typography>
+        <Typography color="textSecondary">{getReadableTime()}</Typography>
+      </Container>
+    )
+  }
+
+  const nowString = (): string => {
+    const hours = new Date().getHours()
+    const minutes = new Date().getMinutes()
+    return hours.toString() + (minutes > 9 ? minutes : '0' + minutes).toString()
   }
 
   const isOnAir = (): boolean => {
-    const now = parseInt(new Date().toISOString().split('T')[1].substr(0, 5).split(':').join(''))
+    const now = parseInt(nowString())
     const start = parseInt(data.human_start_time.split('+')[0].substr(0, 5).split(':').join('')) +
     parseInt(data.human_start_time.split('+')[1].split(':').join(''))
     const end = parseInt(data.human_end_time.split('+')[0].substr(0, 5).split(':').join('')) +
@@ -77,7 +88,7 @@ const Program: React.FC<ProgramProps> = ({data}) => {
             { onAirBadge() }
           </Grid>
           <Grid item xs={10} sm={11}>
-            <Typography>{title()}</Typography>
+            {title()}
           </Grid>
         </Grid>
       </AccordionSummary>
