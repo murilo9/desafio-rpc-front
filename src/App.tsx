@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const Container = styled(MuiContainer)`
   @media only screen and (max-width: 425px) {
-    padding: 0;
+    padding: 0 !important;
   }
 `
 

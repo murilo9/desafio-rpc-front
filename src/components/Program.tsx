@@ -1,13 +1,31 @@
 import React, { ReactNode } from 'react';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Chip, Container, Grid } from '@material-ui/core';
+import { Chip as MuiChip, Grid } from '@material-ui/core';
+import styled from 'styled-components'
+
+const Accordion = styled(MuiAccordion)`
+  &.bg-dark {
+    background-color: #f5f5f5;
+  }
+`
+
+const AccordionSummary = styled(MuiAccordionSummary)`
+  padding-left: 8px !important;
+`
+
+const Chip = styled(MuiChip)`
+  .MuiChip-label {
+    margin: 8px 0;
+  }
+`
 
 interface ProgramProps {
   data: ProgramData
+  index: number
 }
 
 export interface DiasData {
@@ -38,7 +56,7 @@ export interface ProgramData {
   }
 }
 
-const Program: React.FC<ProgramProps> = ({data}) => {
+const Program: React.FC<ProgramProps> = ({data, index}) => {
 
   const getReadableTime = (): string => {
     return data.human_start_time.substr(0, 5)
@@ -81,7 +99,7 @@ const Program: React.FC<ProgramProps> = ({data}) => {
   }
 
   return (
-    <Accordion key={id()}>
+    <Accordion key={id()} className={index % 2 ? '' : 'bg-dark'}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
