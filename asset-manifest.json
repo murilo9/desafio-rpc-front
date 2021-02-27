@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/desafio-rpc-front/static/js/main.11c64a65.chunk.js",
+    "main.js.map": "/desafio-rpc-front/static/js/main.11c64a65.chunk.js.map",
+    "runtime-main.js": "/desafio-rpc-front/static/js/runtime-main.87666a1e.js",
+    "runtime-main.js.map": "/desafio-rpc-front/static/js/runtime-main.87666a1e.js.map",
+    "static/js/2.251eeda8.chunk.js": "/desafio-rpc-front/static/js/2.251eeda8.chunk.js",
+    "static/js/2.251eeda8.chunk.js.map": "/desafio-rpc-front/static/js/2.251eeda8.chunk.js.map",
+    "index.html": "/desafio-rpc-front/index.html",
+    "static/js/2.251eeda8.chunk.js.LICENSE.txt": "/desafio-rpc-front/static/js/2.251eeda8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87666a1e.js",
+    "static/js/2.251eeda8.chunk.js",
+    "static/js/main.11c64a65.chunk.js"
+  ]
+}
