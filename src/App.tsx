@@ -1,4 +1,4 @@
-import { Container as MuiContainer } from '@material-ui/core';
+import { Box, Container as MuiContainer, Typography } from '@material-ui/core';
 import React, { useCallback, useEffect, useState } from 'react';
 import Loader from './components/Loader';
 import { ProgramData } from './components/Program';
@@ -15,6 +15,7 @@ const Container = styled(MuiContainer)`
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [programs, setPrograms] = useState<ProgramData[]>([])
+  const [error, setError] = useState(false)
 
   const loadPrograms = useCallback(async () => {
     try{
@@ -23,7 +24,8 @@ const App: React.FC = () => {
       setLoading(false)
     }
     catch(e) {
-      console.log(e)
+      setLoading(false)
+      setError(true)
     }
   }, [])
 
@@ -37,6 +39,11 @@ const App: React.FC = () => {
         {
           loading ?
           <Loader />
+          :
+          error ?
+          <Box textAlign="center">
+            <Typography>Houve um erro ao carregar a grade. Tente novamente.</Typography>
+          </Box>
           :
           <ProgramList list={programs} />
         }

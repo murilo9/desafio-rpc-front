@@ -47,7 +47,7 @@ const ProgramList: React.FC<ProgramListProps> = ({list}) => {
         </Typography>
       </Box>
       {list.map((program, p) => {
-        return <Program data={program} index={p} />
+        return <Program data={program} index={p} key={program.media_id} />
       })}
     </>
   )

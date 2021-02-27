@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Typography = styled(MuiTypography)`
-  margin-left: 16px;
+  margin-left: 16px !important;
 `
 
 const Loader: React.FC = () => {

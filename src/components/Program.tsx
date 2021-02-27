@@ -99,7 +99,7 @@ const Program: React.FC<ProgramProps> = ({data, index}) => {
   }
 
   return (
-    <Accordion key={id()} className={index % 2 ? '' : 'bg-dark'}>
+    <Accordion className={index % 2 ? '' : 'bg-dark'}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
