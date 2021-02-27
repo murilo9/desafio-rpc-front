@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Chip as MuiChip, Grid } from '@material-ui/core';
 import styled from 'styled-components'
+import WeekDays from './WeekDays';
 
 const Accordion = styled(MuiAccordion)`
   &.bg-dark {
@@ -138,6 +139,8 @@ const Program: React.FC<ProgramProps> = ({data, index}) => {
               </Typography>
               : null
             }
+            <p> </p>
+            <WeekDays days={data.custom_info.Dias} />
           </Grid>
         </Grid>
       </AccordionDetails>
