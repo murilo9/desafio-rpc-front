@@ -4,7 +4,16 @@ import { DiasData } from './Program';
 import styled from 'styled-components'
 
 const Chip = styled(MuiChip)`
-  margin-right: 8px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  @media only screen and (max-width: 425px) {
+    margin-right: 6px;
+    border-radius: 8px !important;
+    .MuiChip-label {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+  }
 `
 
 interface WeekDaysProps {

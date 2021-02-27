@@ -115,8 +115,8 @@ const Program: React.FC<ProgramProps> = ({data, index}) => {
       </AccordionSummary>
       <AccordionDetails>
         <Grid container>
-          <Grid item xs={3} sm={2} lg={1}></Grid>
-          <Grid item xs={9} sm={10} lg={11}>
+          <Grid item xs={false} sm={2} lg={1}></Grid>
+          <Grid item xs={12} sm={10} lg={11}>
             <Typography>
               { data.description || null}
             </Typography>
